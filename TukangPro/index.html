@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TukangPro - Jasa Perbaikan Rumah</title>
+  
+  <!-- Font & Icon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-poppins bg-gray-50 text-gray-800 antialiased min-h-screen flex flex-col">
+
+  <!-- ========================================== -->
+  <!-- Bagian 1: Header & Navbar (Bapakasepp)     -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white text-lg">
+          <i class="fa-solid fa-wrench"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-bold tracking-tight text-blue-900 leading-tight">
+            Tukang<span class="text-blue-600">Pro</span>
+          </span>
+          <span class="text-[11px] text-gray-500">Jasa Servis & Perbaikan</span>
+        </div>
+      </a>
+
+      <!-- Menu Navigasi -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#beranda" class="text-blue-600 hover:text-blue-700 transition">Beranda</a>
+        <a href="#layanan" class="hover:text-blue-600 transition">Layanan</a>
+        <a href="#cara-kerja" class="hover:text-blue-600 transition">Cara Kerja</a>
+        <a href="#mitra" class="hover:text-blue-600 transition">Gabung Mitra</a>
+      </nav>
+
+      <!-- Tombol Aksi & Kontak -->
+      <div class="flex items-center gap-4">
+        <div class="hidden lg:block text-right">
+          <span class="text-xs text-gray-400 block">Hubungi Kami</span>
+          <a href="tel:08001234567" class="text-sm font-semibold text-gray-700 hover:text-blue-600">
+            0800-1234-567
+          </a>
+        </div>
+        <a href="#pesan" class="px-5 py-2.5 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm transition shadow-sm">
+          Pesan Sekarang
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden flex items-center justify-around py-2.5 border-t border-gray-100 bg-gray-50 text-xs font-medium text-gray-600">
+      <a href="#beranda" class="text-blue-600">Beranda</a>
+      <a href="#layanan" class="hover:text-blue-600">Layanan</a>
+      <a href="#cara-kerja" class="hover:text-blue-600">Cara Kerja</a>
+      <a href="#mitra" class="hover:text-blue-600">Mitra</a>
+    </div>
+  </header>
+
+
+  <!-- Konten Utama Halaman -->
+  <main class="flex-1 w-full pt-28">
+
+    <!-- ========================================== -->
+    <!-- Bagian 2: Hero Section & Form (Fikri)      -->
+    <!-- ========================================== -->
+    <section id="beranda" class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="p-8 border-2 border-dashed border-blue-200 rounded-xl bg-white/70 text-center">
+          <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold mb-3">
+            Bagian 2 - Fikri
+          </span>
+          <h2 class="text-2xl font-bold text-gray-800">Hero Section & Form Pemesanan</h2>
+          <p class="text-gray-500 text-sm mt-2 max-w-lg mx-auto">
+            Area untuk headline perkenalan TukangPro, banner visual, dan form pemesanan teknisi kilat.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- Bagian 3: Katalog Layanan (Ghifari)        -->
+    <!-- ========================================== -->
+    <section id="layanan" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="p-8 border-2 border-dashed border-gray-300 rounded-xl bg-white text-center">
+          <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold mb-3">
+            Bagian 3 - Ghifari
+          </span>
+          <h2 class="text-2xl font-bold text-gray-800">Katalog Layanan & Keunggulan</h2>
+          <p class="text-gray-500 text-sm mt-2 max-w-lg mx-auto">
+            Area untuk daftar servis (AC, kelistrikan, pipa, elektronik) beserta rincian biaya dan keunggulan.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- Bagian 4: Alur Kerja & Review (Panji)      -->
+    <!-- ========================================== -->
+    <section id="cara-kerja" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="p-8 border-2 border-dashed border-yellow-300 rounded-xl bg-yellow-50/50 text-center">
+          <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-semibold mb-3">
+            Bagian 4 - Panji
+          </span>
+          <h2 class="text-2xl font-bold text-gray-800">Alur Kerja & Testimoni Pelanggan</h2>
+          <p class="text-gray-500 text-sm mt-2 max-w-lg mx-auto">
+            Area untuk langkah-langkah pemesanan dan ulasan/review kepuasan dari pelanggan.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================== -->
+    <!-- Bagian 5: CTA & Footer (Khalid)            -->
+    <!-- ========================================== -->
+    <section id="mitra" class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="p-8 border-2 border-dashed border-purple-200 rounded-xl bg-white text-center">
+          <span class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold mb-3">
+            Bagian 5 - Khalid
+          </span>
+          <h2 class="text-2xl font-bold text-gray-800">Banner Kemitraan & Footer</h2>
+          <p class="text-gray-500 text-sm mt-2 max-w-lg mx-auto">
+            Area untuk banner pendaftaran mitra baru serta footer navigasi dan informasi kontak.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Footer Sederhana -->
+  <footer class="bg-gray-900 text-gray-400 py-6 text-center text-xs">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; 2026 TukangPro - Tugas Kelompok Pemrograman Web</p>
+    </div>
+  </footer>
+
+</body>
+</html>
