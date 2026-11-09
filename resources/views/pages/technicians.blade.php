@@ -19,6 +19,60 @@
         </div>
     </section>
 
+    {{-- Dynamic Filter Bar (GET Form) --}}
+    <section class="w-full bg-white border-b border-[#dce2f7] sticky top-20 z-30 shadow-2xs">
+        <form method="GET" action="{{ route('technicians.index') }}" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4 space-y-3">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+                <div class="md:col-span-5 flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-[#f1f3ff]">
+                    <span class="material-symbols-outlined text-[#0045b2] text-lg">search</span>
+                    <input type="text" name="search" value="{{ $search }}"
+                           placeholder="Cari nama teknisi, keahlian MCB, freon, pipa..."
+                           class="w-full bg-transparent text-xs sm:text-sm text-[#141b2b] outline-none">
+                </div>
+
+                <div class="md:col-span-3">
+                    <select name="category" class="w-full px-3.5 py-2.5 rounded-xl bg-[#f1f3ff] text-xs sm:text-sm font-semibold text-[#141b2b]">
+                        <option value="all" {{ $category === 'all' ? 'selected' : '' }}>Semua Kategori Layanan</option>
+                        <option value="listrik" {{ $category === 'listrik' ? 'selected' : '' }}>Kelistrikan &amp; MCB</option>
+                        <option value="ac" {{ $category === 'ac' ? 'selected' : '' }}>Servis AC &amp; Freon</option>
+                        <option value="plumbing" {{ $category === 'plumbing' ? 'selected' : '' }}>Plumbing &amp; Pipa</option>
+                        <option value="pompa" {{ $category === 'pompa' ? 'selected' : '' }}>Pompa Air &amp; Elektronik</option>
+                        <option value="atap" {{ $category === 'atap' ? 'selected' : '' }}>Atap &amp; Kunci</option>
+                    </select>
+                </div>
+
+                <div class="md:col-span-2">
+                    <select name="radius" class="w-full px-3.5 py-2.5 rounded-xl bg-[#f1f3ff] text-xs sm:text-sm font-semibold text-[#141b2b]">
+                        <option value="5" {{ $radius === 5 ? 'selected' : '' }}>Radius ≤ 5 km</option>
+                        <option value="10" {{ $radius === 10 ? 'selected' : '' }}>Radius ≤ 10 km</option>
+                        <option value="25" {{ $radius === 25 ? 'selected' : '' }}>Radius ≤ 25 km</option>
+                    </select>
+                </div>
+
+                <div class="md:col-span-2">
+                    <button type="submit" class="w-full py-2.5 rounded-xl bg-[#0045b2] hover:bg-[#003388] text-white font-bold text-xs sm:text-sm cursor-pointer">
+                        Terapkan Filter
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4 text-xs text-[#424654]">
+                <label class="inline-flex items-center gap-1.5 cursor-pointer">
+                    <input type="checkbox" name="online" value="1" {{ $onlineOnly ? 'checked' : '' }} onchange="this.form.submit()">
+                    <span>Hanya Siaga Online</span>
+                </label>
+                <label class="inline-flex items-center gap-1.5 cursor-pointer">
+                    <input type="checkbox" name="rating" value="1" {{ $highRating ? 'checked' : '' }} onchange="this.form.submit()">
+                    <span>Rating ★ 4.8+</span>
+                </label>
+                <label class="inline-flex items-center gap-1.5 cursor-pointer">
+                    <input type="checkbox" name="bnsp" value="1" {{ $bnspOnly ? 'checked' : '' }} onchange="this.form.submit()">
+                    <span>Wajib Sertifikat BNSP</span>
+                </label>
+            </div>
+        </form>
+    </section>
+
     {{-- 2. Grid Kartu Profil Teknisi BNSP --}}
     <section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-12 py-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -76,4 +130,5 @@
         </div>
     </section>
 </div>
+
 @endsection
