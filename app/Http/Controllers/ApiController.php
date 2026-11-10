@@ -51,3 +51,38 @@ class ApiController extends Controller
         ]);
     }
 }
+    /**
+     * GET /api/v1/services — Daftar 6 Katalog Layanan TukangPro
+     */
+    public function services(): JsonResponse
+    {
+        return response()->json([
+            'success' => true,
+            'count' => ServiceCategory::count(),
+            'data' => ServiceCategory::orderBy('id')->get(),
+        ]);
+    }
+
+    /**
+     * GET /api/v1/technicians — Daftar Direktori Teknisi BNSP dengan Filter Query
+     */
+    public function technicians(\Illuminate\Http\Request $request): JsonResponse
+    {
+        $query = Technician::query()->orderBy('distance_km');
+
+        if ($request->boolean('online_only', false)) {
+            $query->where('is_online', true);
+        }
+
+        if ($request->filled('max_radius')) {
+            $query->where('distance_km', '<=', (float) $request->query('max_radius'));
+        }
+
+        $techs = $query->get();
+
+        return response()->json([
+            'success' => true,
+            'count' => $techs->count(),
+            'data' => $techs,
+        ]);
+    }
