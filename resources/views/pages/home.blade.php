@@ -73,3 +73,61 @@
     {{-- Tempat Seksi Katalog Layanan (#32) & Testimoni (#37) --}}
 </div>
 @endsection
+    {{-- 2. Bento Grid Katalog 6 Layanan Berstandar SNI/BNSP --}}
+    <section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-12 py-16 space-y-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-[#0045b2]">KATALOG LAYANAN ON-DEMAND</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#141b2b] mt-1">Pilih Spesialisasi Teknisi Rumah Tangga</h2>
+            </div>
+            <a href="{{ route('technicians.index') }}" class="text-sm font-bold text-[#0045b2] hover:underline">Lihat Semua Mitra BNSP →</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach ($services as $srv)
+                <div class="bg-white rounded-3xl overflow-hidden shadow-xs border border-[#dce2f7] hover:shadow-lg transition-all flex flex-col">
+                    <div class="relative h-44 bg-[#e9edff]">
+                        <img src="{{ $srv->image_url }}" alt="{{ $srv->title }}" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#141b2b]/85 text-[#6ffbbe] text-[11px] font-bold">
+                            {{ $srv->active_tech_count }} Teknisi Aktif
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center gap-2 text-xs font-bold text-[#0045b2]">
+                                <span class="material-symbols-outlined text-base">{{ $srv->icon }}</span>
+                                <span>{{ $srv->category_name }}</span>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-[#141b2b] mt-1">{{ $srv->title }}</h3>
+                            <p class="text-xs text-[#424654] mt-1.5 leading-relaxed">{{ $srv->description }}</p>
+                        </div>
+                        <div class="pt-3 border-t border-[#dce2f7] flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-[#424654] block">Tarif Dasar Mulai</span>
+                                <strong class="text-base font-extrabold text-[#0045b2]">{{ $srv->formatted_price }}</strong>
+                            </div>
+                            <a href="{{ route('technicians.index', ['category' => strtolower($srv->category_name)]) }}"
+                               class="px-4 py-2 rounded-xl bg-[#0045b2] hover:bg-[#003388] text-white text-xs font-bold">
+                                Panggil Teknisi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+    {{-- 3. Alur Cara Kerja Proteksi Escrow 4 Langkah --}}
+    <section class="w-full bg-[#f1f3ff] py-16 px-4 sm:px-6 lg:px-12 border-y border-[#dce2f7]">
+        <div class="max-w-7xl mx-auto space-y-8">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#00593c]">CARA KERJA AMAN &amp; TRANSPARAN</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#141b2b] mt-1">4 Langkah Servis Rumah Bebas Khawatir</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="bg-white p-6 rounded-2xl border border-[#dce2f7]"><span class="text-xs font-extrabold text-[#0045b2]">01 • DIAGNOSA AI</span><h4 class="font-bold text-base mt-1">Cek Keluhan &amp; Estimasi</h4><p class="text-xs text-[#424654] mt-1">Gunakan AI Inspector untuk mengetahui perkiraan penyebab dan rentang biaya wajar.</p></div>
+                <div class="bg-white p-6 rounded-2xl border border-[#dce2f7]"><span class="text-xs font-extrabold text-[#0045b2]">02 • PILIH MITRA BNSP</span><h4 class="font-bold text-base mt-1">Bandingkan Jarak &amp; Rating</h4><p class="text-xs text-[#424654] mt-1">Pilih teknisi terdekat dengan sertifikasi kompetensi resmi dan tarif transparan.</p></div>
+                <div class="bg-white p-6 rounded-2xl border border-[#dce2f7]"><span class="text-xs font-extrabold text-[#0045b2]">03 • KUNCI ESCROW</span><h4 class="font-bold text-base mt-1">Pantau GPS Real-Time</h4><p class="text-xs text-[#424654] mt-1">Dana ditahan aman di Rekening Bersama selama teknisi meluncur dan bekerja.</p></div>
+                <div class="bg-white p-6 rounded-2xl border border-[#dce2f7]"><span class="text-xs font-extrabold text-[#00593c]">04 • SETUJUI BAST</span><h4 class="font-bold text-base mt-1">Garansi 30 Hari Aktif</h4><p class="text-xs text-[#424654] mt-1">Dana baru cair ke mitra setelah pekerjaan beres &amp; BAST Digital Anda setujui.</p></div>
+            </div>
+        </div>
+    </section>
