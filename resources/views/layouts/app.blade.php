@@ -10,7 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/tukangpro.css') }}">
+    @if (file_exists(public_path('css/tukangpro.css')))
+        <link rel="stylesheet" href="{{ asset('css/tukangpro.css') }}">
+    @else
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <style>
+            body { font-family: 'Inter', sans-serif; }
+            .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; line-height: 1; }
+            .material-symbols-outlined.fill-1 { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        </style>
+    @endif
 </head>
 <body class="min-h-screen flex flex-col bg-[#f9f9ff] text-[#141b2b] antialiased selection:bg-[#0045b2] selection:text-white">
     @include('partials.header')
