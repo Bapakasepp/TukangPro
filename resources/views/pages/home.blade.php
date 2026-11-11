@@ -131,3 +131,43 @@
             </div>
         </div>
     </section>
+        {{-- 4. Seksi Testimoni Pelanggan Terverifikasi --}}
+    <section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-12 py-16 space-y-8">
+        <div class="text-center max-w-2xl mx-auto">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#0045b2]">ULASAN PELANGGAN ASLI</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#141b2b] mt-1">Dipercaya Keluarga &amp; Kantor di Indonesia</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @foreach ($reviews as $rev)
+                <div class="bg-white p-6 rounded-3xl border border-[#dce2f7] shadow-xs flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="text-[#fc7123] text-sm font-bold">{{ str_repeat('★', $rev->rating) }}</div>
+                        <p class="text-xs sm:text-sm text-[#424654] leading-relaxed">"{{ $rev->review_comment }}"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-3 border-t border-[#dce2f7]">
+                        <img src="{{ $rev->customer_avatar }}" alt="{{ $rev->customer_name }}" class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <div class="font-bold text-xs text-[#141b2b]">{{ $rev->customer_name }}</div>
+                            <div class="text-[11px] text-[#00593c] font-semibold">{{ $rev->customer_location }} • Terverifikasi</div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    {{-- 5. Banner Rekrutmen Mitra Teknisi BNSP --}}
+    <section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-12 pb-12">
+        <div class="bg-gradient-to-r from-[#141b2b] to-[#0045b2] rounded-3xl p-8 sm:p-10 text-white flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 max-w-2xl">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#6ffbbe]">KEMITRAAN TEKNISI PROFESIONAL</span>
+                <h3 class="text-2xl sm:text-3xl font-extrabold">Punya Keahlian Listrik, AC, atau Pipa? Gabung Mitra TukangPro!</h3>
+                <p class="text-xs sm:text-sm text-white/80">Nikmati bagi hasil 85% transparan, pencairan Escrow instan setelah BAST, dan dukungan sertifikasi BNSP.</p>
+            </div>
+            <button type="button" onclick="openModal('modal-join-partner')"
+                    class="px-6 py-3.5 rounded-xl bg-[#fc7123] hover:bg-[#e05d12] text-white font-extrabold text-sm shrink-0 shadow-lg cursor-pointer">
+                Daftar Jadi Mitra Sekarang
+            </button>
+        </div>
+    </section>
