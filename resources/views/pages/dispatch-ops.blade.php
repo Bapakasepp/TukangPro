@@ -97,3 +97,50 @@
     </div>
 </div>
 @endsection
+    {{-- Tabel Antrean Work Order & Filter Status NOC --}}
+    <div class="bg-white rounded-2xl p-6 shadow-xs border border-[#dce2f7] space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+                <h3 class="font-extrabold text-lg text-[#141b2b]">Antrean Work Order &amp; Status Escrow</h3>
+                <p class="text-xs text-[#424654]">Klik kode Work Order untuk membuka layar Live Tracking &amp; BAST pelanggan.</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5 text-xs">
+                @foreach (['all' => 'Semua', 'ACTIVE' => 'Aktif Jalan', 'PENDING' => 'Menunggu', 'COMPLETED' => 'Selesai'] as $stKey => $stLabel)
+                    <a href="{{ route('dispatch.index', ['status' => $stKey]) }}"
+                       class="px-3 py-1.5 rounded-lg font-bold {{ $statusFilter === $stKey ? 'bg-[#0045b2] text-white' : 'bg-[#f1f3ff] text-[#424654]' }}">
+                        {{ $stLabel }}
+                    </a>
+                @endforeach
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="border-b border-[#dce2f7] text-[#424654] uppercase">
+                        <th class="py-3 px-2">Kode WO</th>
+                        <th class="py-3 px-2">Pelanggan &amp; Lokasi</th>
+                        <th class="py-3 px-2">Teknisi Ditugaskan</th>
+                        <th class="py-3 px-2">Status</th>
+                        <th class="py-3 px-2">Dana Escrow</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[#dce2f7]/60">
+                    @foreach ($filteredOrders as $ord)
+                        <tr class="hover:bg-[#f9f9ff]">
+                            <td class="py-3 px-2 font-extrabold text-[#0045b2]">
+                                <a href="{{ route('tracking.show', ['orderCode' => $ord->order_code]) }}" class="hover:underline">{{ $ord->order_code }}</a>
+                            </td>
+                            <td class="py-3 px-2">
+                                <div class="font-bold text-[#141b2b]">{{ $ord->customer_name }}</div>
+                                <div class="text-[11px] text-[#424654] truncate max-w-[200px]">{{ $ord->service_address }}</div>
+                            </td>
+                            <td class="py-3 px-2 font-semibold text-[#141b2b]">{{ $ord->technician?->full_name ?? 'Menunggu Penugasan' }}</td>
+                            <td class="py-3 px-2"><span class="px-2 py-1 rounded-md bg-[#e9edff] text-[#0045b2] font-bold">{{ $ord->status }}</span></td>
+                            <td class="py-3 px-2 font-bold text-[#00593c]">Rp {{ number_format($ord->total_amount, 0, ',', '.') }} ({{ $ord->escrow_status }})</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>

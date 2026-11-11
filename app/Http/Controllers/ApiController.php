@@ -7,6 +7,7 @@ use App\Models\ServiceCategory;
 use App\Models\ServiceOrder;
 use App\Models\Technician;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
@@ -50,7 +51,7 @@ class ApiController extends Controller
             ],
         ]);
     }
-}
+
     /**
      * GET /api/v1/services — Daftar 6 Katalog Layanan TukangPro
      */
@@ -66,7 +67,7 @@ class ApiController extends Controller
     /**
      * GET /api/v1/technicians — Daftar Direktori Teknisi BNSP dengan Filter Query
      */
-    public function technicians(\Illuminate\Http\Request $request): JsonResponse
+    public function technicians(Request $request): JsonResponse
     {
         $query = Technician::query()->orderBy('distance_km');
 
@@ -86,3 +87,4 @@ class ApiController extends Controller
             'data' => $techs,
         ]);
     }
+}
